@@ -1,10 +1,11 @@
 function BookCard({book}) {
 
-    const book_link = `https://openlibrary.org${book.key}`;
-    const author_link = `https://openlibrary.org/authors/${book.author_key}`;
-    const authors = book.author_name.join(", ");
-    let cover_image;
+    // Extract book ID
+    let book_id = book.key.split("/")[2];
+    const book_link = `/books/${book_id}`;
 
+    // Assign book cover, else default placeholder
+    let cover_image;
     (book.cover_i) ? cover_image = `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg` : cover_image = "https://placehold.net/400x600.png";
 
     return(
@@ -25,7 +26,19 @@ function BookCard({book}) {
                 {/*Book Title & Author*/}
                 <div className="d-flex flex-column">
                     <h6 className="fw-medium m-0"><a href={book_link} className="text-body link-underline-dark link-underline-opacity-0 link-underline-opacity-100-hover">{book.title}</a></h6>
-                    <p className="m-0 fs-6"><small><a href={author_link} className="text-secondary link-underline-secondary link-underline-opacity-0 link-underline-opacity-100-hover">{authors}</a></small></p>
+                    <p className="m-0 fs-6"><small>
+                        {/*List authors with URLs*/}
+                        {book.author_name.map((name, index) => (
+                            <span key={index}>
+                                <a
+                                    href={`/authors/${book.author_key[index]}`}
+                                    className="text-secondary link-underline-secondary link-underline-opacity-0 link-underline-opacity-100-hover">
+                                    {name}
+                                </a>
+                                {index < book.author_name.length - 1 && ", "}
+                            </span>
+                        ))}
+                    </small></p>
                 </div>
 
             </div>

@@ -20,6 +20,9 @@ function NavBar() {
                         <li className="nav-item">
                             <Link className="nav-link" to="/">Home</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/authors/2323">James</Link>
+                        </li>
                     </ul>
 
                 </div>
