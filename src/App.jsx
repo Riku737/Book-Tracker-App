@@ -21,6 +21,7 @@ function App() {
 				<Route path="/books" element={<Book />}>
 					<Route path="/books/:id" element={<Book />} />
 				</Route>
+				<Route path ="/authors" element={<Home />} />
 				<Route path="/authors/:id" element={<Author />} />
 				<Route path='/cart' element={<Cart />} />
 			</Routes>
