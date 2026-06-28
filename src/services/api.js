@@ -34,3 +34,15 @@ export const getAuthor = async (author_key) => {
 	const data = await response.json();
 	return (data);
 }
+
+export const getBook = async (book_key) => {
+	const response = await fetch(`${BASE_URL}/works/${book_key}.json`);
+	const data = await response.json();
+	console.log(data);
+
+	if (!response.ok) { // Response validation (e.g., error 404)
+		throw new Error(`Unable to find a book with ID ${book_key}.`);
+	}
+
+	return (data);
+}
