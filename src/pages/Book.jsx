@@ -42,11 +42,6 @@ function Book() {
     let cover_image;
     (book.covers) ? cover_image = `https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg` : cover_image = "https://placehold.net/400x600.png";
 
-    // function readMore(description) {
-    //     if (description.length > 200) {
-    //         return()
-    //     }
-    // }
     return (
         <>
             <div className="row">
@@ -59,23 +54,25 @@ function Book() {
                         />
                     </div>
                 </div>
-                <div className="col-6">
-                    <h1>{book.title}</h1>
-                    <p>
-                        {book.authors.map((author, index) => (
-                            <span key={index}>
-                                <a
-                                    href={`${author.key}`}
-                                    className="text-secondary link-underline-secondary link-underline-opacity-0 link-underline-opacity-100-hover">
-                                    {author.name}
-                                </a>
-                                {index < book.authors.length - 1 && ", "}
-                            </span>
-                        ))}
-                    </p>
+                <div className="col-6 d-flex flex-column gap-3">
+
+                    <div>
+                        <h1>{book.title}</h1>
+                        <p>
+                            {book.authors.map((author, index) => (
+                                <span key={index}>
+                                    <a
+                                        href={`${author.key}`}
+                                        className="text-secondary link-underline-secondary link-underline-opacity-0 link-underline-opacity-100-hover">
+                                        {author.name}
+                                    </a>
+                                    {index < book.authors.length - 1 && ", "}
+                                </span>
+                            ))}
+                        </p>
+                    </div>
 
                     <div className="input-group">
-
                         <button type="button" className="btn btn-primary">Want to Read</button>
                         <button type="button"
                                 className="btn btn-primary dropdown-toggle dropdown-toggle-split"
@@ -90,6 +87,7 @@ function Book() {
                     </div>
 
                     <Description content={book.description} />
+
                 </div>
             </div>
             <hr className="hr my-4"/>

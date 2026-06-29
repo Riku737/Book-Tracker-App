@@ -3,7 +3,8 @@ import {useState} from "react";
 function Description({ content }) {
 
     let description;
-
+    let textLimit = false;
+    const TEXTLENGTH = 300;
     const [open, setOpen] = useState(false);
 
     /*
@@ -17,15 +18,19 @@ function Description({ content }) {
         description = content;
     }
 
+    if (description.length > TEXTLENGTH) {
+        textLimit = true;
+    }
+
     function readMore() {
         setOpen(!open);
     }
 
     return(
         <>
-            <p className="text-break" id="book-description">
-                { !open ? description.slice(0,200) : description }
-                <button onClick={readMore} type="button" className="btn btn-link p-0 align-baseline">{open ? "Read Less" : "Read More"}</button>
+            <p className="text-break" style={{"white-space": "pre-line"}}>
+                { !open && textLimit ? `${description.slice(0,TEXTLENGTH)}... ` : `${description} ` }
+                { textLimit && <button onClick={readMore} type="button" className="btn btn-link p-0 align-baseline">{open ? "Read Less" : "Read More"}</button> }
             </p>
         </>
     );
