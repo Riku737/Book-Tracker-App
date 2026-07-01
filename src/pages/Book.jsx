@@ -1,7 +1,7 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getAuthorName, getBook} from "../services/api.js";
-import Description from "../components/Description.jsx";
+import Description from "../components/BookDescription.jsx";
 
 function Book() {
 
@@ -44,7 +44,7 @@ function Book() {
 
     return (
         <>
-            <div className="row">
+            <div className="row g-5">
                 <div className="col-6">
                     <div className="bg-light ratio ratio-1x1 d-flex justify-content-center rounded">
                         <img
@@ -54,7 +54,8 @@ function Book() {
                         />
                     </div>
                 </div>
-                <div className="col-6 d-flex flex-column gap-3">
+
+                <div className="col-6 d-flex flex-column row-gap-3">
 
                     <div>
                         <h1>{book.title}</h1>
@@ -62,8 +63,7 @@ function Book() {
                             {book.authors.map((author, index) => (
                                 <span key={index}>
                                     <a
-                                        href={`${author.key}`}
-                                        className="text-secondary link-underline-secondary link-underline-opacity-0 link-underline-opacity-100-hover">
+                                        href={`${author.key}`}>
                                         {author.name}
                                     </a>
                                     {index < book.authors.length - 1 && ", "}
@@ -72,11 +72,12 @@ function Book() {
                         </p>
                     </div>
 
-                    <div className="input-group">
-                        <button type="button" className="btn btn-primary">Want to Read</button>
+                    <div className="input-group w-100">
+                        <button type="button" className="btn btn-primary flex-grow-1">Want to Read</button>
                         <button type="button"
                                 className="btn btn-primary dropdown-toggle dropdown-toggle-split"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">
                             <span className="visually-hidden">Toggle Dropdown</span>
                         </button>
                         <ul className="dropdown-menu dropdown-menu-end">
@@ -86,19 +87,19 @@ function Book() {
                         </ul>
                     </div>
 
-                    <Description content={book.description} />
+                    <Description content={book.description}/>
 
                 </div>
             </div>
-            <hr className="hr my-4"/>
-            <div>
-                <h2>Overview</h2>
-                {book.subjects.map((subject, index) => (
-                    <div key={index}>
-                        {subject}
-                    </div>
-                ))}
-            </div>
+            {/*<hr className="hr my-4"/>*/}
+            {/*<div>*/}
+            {/*    <h2>Overview</h2>*/}
+            {/*    {book.subjects.map((subject, index) => (*/}
+            {/*        <div key={index}>*/}
+            {/*            {subject}*/}
+            {/*        </div>*/}
+            {/*    ))}*/}
+            {/*</div>*/}
         </>
     );
 }

@@ -8,7 +8,7 @@ function NavBar() {
             
             <div className="container container-fluid">
                 
-                <a className="navbar-brand h1">Navbar</a>
+                <a className="navbar-brand h1">Books</a>
                 
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>

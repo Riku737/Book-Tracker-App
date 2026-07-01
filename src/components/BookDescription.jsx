@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-function Description({ content }) {
+function BookDescription({ content }) {
 
     let description;
     let textLimit = false;
@@ -28,7 +28,7 @@ function Description({ content }) {
 
     return(
         <>
-            <p className="text-break" style={{"white-space": "pre-line"}}>
+            <p className="text-break" style={{"whiteSpace": "pre-line"}}>
                 { !open && textLimit ? `${description.slice(0,TEXTLENGTH)}... ` : `${description} ` }
                 { textLimit && <button onClick={readMore} type="button" className="btn btn-link p-0 align-baseline">{open ? "Read Less" : "Read More"}</button> }
             </p>
@@ -36,4 +36,4 @@ function Description({ content }) {
     );
 }
 
-export default Description;
+export default BookDescription;

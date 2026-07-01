@@ -25,14 +25,13 @@ function BookCard({book}) {
 
                 {/*Book Title & Author*/}
                 <div className="d-flex flex-column">
-                    <h6 className="fw-medium m-0"><a href={book_link} className="text-body link-underline-dark link-underline-opacity-0 link-underline-opacity-100-hover">{book.title}</a></h6>
+                    <h6 className="fw-medium m-0"><a href={book_link}>{book.title}</a></h6>
                     <p className="m-0 fs-6 lh-sm"><small>
                         {/*List authors with URLs*/}
                         {book.author_name.map((name, index) => (
                             <span key={index}>
                                 <a
-                                    href={`/authors/${book.author_key[index]}`}
-                                    className="text-secondary link-underline-secondary link-underline-opacity-0 link-underline-opacity-100-hover">
+                                    href={`/authors/${book.author_key[index]}`}>
                                     {name}
                                 </a>
                                 {index < book.author_name.length - 1 && ", "}
