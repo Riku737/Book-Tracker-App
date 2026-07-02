@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import {useEffect, useState} from "react";
-import { getAuthor } from "../services/api.js";
+import {getAuthor} from "../services/api.js";
 
-function Author() {
+export default function Author() {
 
     // Extract :id parameter from route
     const { id } = useParams();
@@ -20,6 +20,7 @@ function Author() {
                 setError(null);
 
                 const data = await getAuthor(id);
+                // data["books"] = await getAuthorBooks(id);
                 setAuthor(data);
 
             } catch (e) { // If API call fails
@@ -39,8 +40,11 @@ function Author() {
     return(
         <>
             <h1>{author.name}</h1>
+
+            <div className="row">
+
+            </div>
+
         </>
     );
 }
-
-export default Author;
