@@ -2,8 +2,9 @@ import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getAuthorName, getBook} from "../services/api.js";
 import Description from "../components/BookDescription.jsx";
+import BookButton from "../components/BookButton.jsx";
 
-function Book() {
+export default function Book() {
 
     const { id } = useParams(); // Extract book ID
 
@@ -23,7 +24,6 @@ function Book() {
                 // Retrieve author names manually because book API doesn't show the names (only shows author IDs)
                 data["authors"] = await getAuthorName(data.authors);
                 setBook(data);
-                console.log(data);
 
             } catch (e) {
                 console.log(e);
@@ -72,20 +72,7 @@ function Book() {
                         </p>
                     </div>
 
-                    <div className="input-group w-100">
-                        <button type="button" className="btn btn-primary flex-grow-1">Want to Read</button>
-                        <button type="button"
-                                className="btn btn-primary dropdown-toggle dropdown-toggle-split"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                            <span className="visually-hidden">Toggle Dropdown</span>
-                        </button>
-                        <ul className="dropdown-menu dropdown-menu-end">
-                            <li><a className="dropdown-item" href="#">Currently Reading</a></li>
-                            <li><a className="dropdown-item" href="#">Read</a></li>
-                            <li><a className="dropdown-item" href="#">Did Not Finish</a></li>
-                        </ul>
-                    </div>
+                    <BookButton />
 
                     <Description content={book.description}/>
 
@@ -103,5 +90,3 @@ function Book() {
         </>
     );
 }
-
-export default Book;
