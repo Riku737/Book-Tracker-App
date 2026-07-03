@@ -8,6 +8,8 @@ function BookCard({book}) {
     let cover_image;
     (book.cover_i) ? cover_image = `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg` : cover_image = "https://placehold.net/400x600.png";
 
+    console.log(book);
+
     return(
         <>
         <div className="col-lg-3 col-md-4 col-6">
@@ -28,10 +30,11 @@ function BookCard({book}) {
                     <h6 className="fw-medium m-0"><a href={book_link}>{book.title}</a></h6>
                     <p className="m-0 fs-6 lh-sm"><small>
                         {/*List authors with URLs*/}
-                        {book.author_name.map((name, index) => (
+                        {/*Robust approach to handle edge cases (null/undefine)*/}
+                        {(book?.author_name || []).map((name, index) => (
                             <span key={index}>
                                 <a
-                                    href={`/authors/${book.author_key[index]}`}>
+                                    href={`/authors/${book.author_key?.[index]}`}>
                                     {name}
                                 </a>
                                 {index < book.author_name.length - 1 && ", "}
