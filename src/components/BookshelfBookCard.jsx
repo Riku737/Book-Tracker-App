@@ -37,7 +37,7 @@ export default function HomeBookCard({book}) {
                             {(book?.authors || []).map((author, index) => (
                                 <span key={index}>
                                 <a
-                                    href={`/authors/${author.key?.[index]}`}>
+                                    href={`${author.key}`}>
                                     {author.name}
                                 </a>
                                     {index < book.authors.length - 1 && ", "}
