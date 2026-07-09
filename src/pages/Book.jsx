@@ -2,7 +2,8 @@ import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getAuthorName, getBook} from "../services/api.js";
 import Description from "../components/BookDescription.jsx";
-import BookButton from "../components/BookButton.jsx";
+import BookButton from "../components/BookDropdown.jsx";
+import BookCoverCarousel from "../components/BookCoverCarousel.jsx";
 
 export default function Book() {
 
@@ -39,20 +40,15 @@ export default function Book() {
     if (error) return <h1>Failed to load book</h1>;
     if (!book) return <h1>No book found</h1>;
 
-    let cover_image;
-    (book.covers) ? cover_image = `https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg` : cover_image = "https://placehold.net/400x600.png";
+    // let cover_image;
+    // (book.covers) ? cover_image = `https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg` : cover_image = "https://placehold.net/400x600.png";
 
     return (
         <>
             <div className="row g-5">
+
                 <div className="col-6">
-                    <div className="bg-light ratio ratio-1x1 d-flex justify-content-center rounded">
-                        <img
-                            src={cover_image}
-                            className="object-fit-contain p-4"
-                            alt={book.title}
-                        />
-                    </div>
+                    <BookCoverCarousel book={book} />
                 </div>
 
                 <div className="col-6 d-flex flex-column row-gap-3">
@@ -72,21 +68,12 @@ export default function Book() {
                         </p>
                     </div>
 
-                    <BookButton book={book} />
+                    <BookButton book={book}/>
 
                     <Description content={book.description}/>
 
                 </div>
             </div>
-            {/*<hr className="hr my-4"/>*/}
-            {/*<div>*/}
-            {/*    <h2>Overview</h2>*/}
-            {/*    {book.subjects.map((subject, index) => (*/}
-            {/*        <div key={index}>*/}
-            {/*            {subject}*/}
-            {/*        </div>*/}
-            {/*    ))}*/}
-            {/*</div>*/}
         </>
     );
 }
