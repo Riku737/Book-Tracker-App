@@ -4,14 +4,6 @@ export default function HomeBookCard({book}) {
     let book_id = book.key.split("/")[2];
     const book_link = `/books/${book_id}`;
 
-    // Assign book cover, else default placeholder
-    let cover_image;
-    if (book.cover_i) {
-        cover_image = `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`;
-    } else {
-        cover_image = "https://placehold.net/400x600.png";
-    }
-
     return(
         <>
         <div className="col-lg-3 col-md-4 col-6">
@@ -21,7 +13,7 @@ export default function HomeBookCard({book}) {
                 {/*Book Cover*/}
                 <a href={book_link} className="bg-light ratio ratio-1x1 d-flex justify-content-center rounded link-underline link-underline-opacity-0 link-underline-opacity-100-hover">
                     <img
-                        src={cover_image}
+                        src={book.cover_i ? (`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`) : (`https://placehold.net/400x600.png`)}
                         className="object-fit-contain p-4"
                         alt={book.title}
                     />

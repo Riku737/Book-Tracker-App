@@ -1,17 +1,8 @@
 export default function HomeBookCard({book}) {
 
-    console.log(book);
-
     // Extract book ID
     let book_id = book.bookKey.split("/")[2];
     const book_link = `/books/${book_id}`;
-
-    let cover_image;
-    if (book.bookCovers) {
-        cover_image = `https://covers.openlibrary.org/b/id/${book.bookCovers[0]}-M.jpg`;
-    } else {
-        cover_image = "https://placehold.net/400x600.png";
-    }
 
     return(
         <>
@@ -20,9 +11,9 @@ export default function HomeBookCard({book}) {
                 <div className="d-flex gap-2 h-100 w-100 d-flex flex-column">
 
                     {/*Book Cover*/}
-                    <a className="bg-light ratio ratio-1x1 d-flex justify-content-center rounded link-underline link-underline-opacity-0 link-underline-opacity-100-hover">
+                    <a className="bg-light ratio ratio-1x1 d-flex justify-content-center rounded link-underline link-underline-opacity-0 link-underline-opacity-100-hover" href={book_link}>
                         <img
-                            src={cover_image}
+                            src={book.bookCovers ? (`https://covers.openlibrary.org/b/id/${book.bookCovers[0]}-M.jpg`) : (`https://placehold.net/400x600.png`)}
                             className="object-fit-contain p-4"
                             alt={book.title}
                         />
