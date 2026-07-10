@@ -42,7 +42,7 @@ export default function Bookshelf() {
                 </li>
             </ul>
             <div className="tab-content" id="myTabContent">
-                <div className="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+                <div className="tab-pane fade show active" role="tabpanel" aria-labelledby="want_to_read-tab"
                      tabIndex="0">
 
                     <div className="row g-4">
@@ -52,7 +52,7 @@ export default function Bookshelf() {
                     </div>
 
                 </div>
-                <div className="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
+                <div className="tab-pane fade" role="tabpanel" aria-labelledby="read-tab"
                      tabIndex="0">
 
                     <div className="row g-4">
@@ -62,7 +62,7 @@ export default function Bookshelf() {
                     </div>
 
                 </div>
-                <div className="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab"
+                <div className="tab-pane fade" role="tabpanel" aria-labelledby="reading-tab"
                      tabIndex="0">
 
                     <div className="row g-4">
@@ -72,7 +72,7 @@ export default function Bookshelf() {
                     </div>
 
                 </div>
-                <div className="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab"
+                <div className="tab-pane fade" role="tabpanel" aria-labelledby="dnf-tab"
                      tabIndex="0">
 
                     <div className="row g-4">
