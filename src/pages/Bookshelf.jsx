@@ -13,7 +13,7 @@ export default function Bookshelf() {
 
     return(
         <>
-            <h1 className="mb-4">Bookshelf</h1>
+            <h1 className="mb-4">My Bookshelf</h1>
 
             <ul className="nav nav-tabs mb-4" id="myTab" role="tablist">
                 <li className="nav-item" role="presentation">

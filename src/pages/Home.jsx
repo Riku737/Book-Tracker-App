@@ -59,7 +59,7 @@ export default function Home() {
     return (
         <>
             <section>
-                <h1 className="fw-bold">Home</h1>
+                <h1 className="mb-4">Home</h1>
             </section>
 
             <form onSubmit={handleSearch} className="input-group mb-5">

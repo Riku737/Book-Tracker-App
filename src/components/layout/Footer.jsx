@@ -7,7 +7,7 @@ function Footer() {
                 <div className="row">
 
                     <div className="col-3">
-                        <h6>Bookstore</h6>
+                        <h6>BookBook</h6>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed iaculis elit. Donec bibendum in elit in mollis.</p>
                     </div>
 
