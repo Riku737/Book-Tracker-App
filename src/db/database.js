@@ -1,5 +1,4 @@
 import { Dexie } from "dexie";
-// import { useLiveQuery } from "dexie-react-hooks";
 import { seedDatabase } from './seeder.js'
 
 export const db = new Dexie("MyBookshelf");
@@ -16,26 +15,42 @@ db.version(1).stores({
     books: '++id, status, title, bookKey, authors, bookCovers',
 });
 
+export const databaseReady = initializeDatabase();
+
+// Add book to bookshelf (and modify status of existing book)
 export async function addToBookshelf(status, title, bookKey, authors, bookCovers) {
 
-    // Return first entry from collection
-    const exists = await db.books.where("bookKey").equals(bookKey).first();
+    const existingBook = await db.books.where("bookKey").equals(bookKey).first();
+    const bookData = { status, title, bookKey, authors, bookCovers };
 
-    if (!exists) {
-        return await db.books.add(
-            {status, title, bookKey, authors, bookCovers},
-        );
-    } else {
-        await resetDatabase();
+    if (existingBook) {
+        return db.books.update(existingBook.id, bookData);
     }
+
+    return db.books.add(bookData);
 }
 
+// Return books where book = specified status
 export function getBooksByStatus(status) {
     return db.books.where({ status }).toArray();
 }
 
-async function resetDatabase() {
+// Completely clear and reseed the database
+export async function resetDatabase() {
+    db.close();
     await db.delete();
     await db.open();
-    await seedDatabase(); // Reseed database
+    await seedDatabase();
+}
+
+// Reseed the database when zero books
+async function initializeDatabase() {
+    await db.open();
+
+    const bookCount = await db.books.count();
+    if (bookCount === 0) {
+        await seedDatabase();
+    } else {
+        resetDatabase(); // Reset entire database on load (tentative)
+    }
 }
