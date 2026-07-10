@@ -43,7 +43,6 @@ export default function Bookshelf() {
 
     return (
         <>
-            <h2>Status: {bookshelfStatus}</h2>
             <h1 className="mb-4">My Bookshelf</h1>
 
             <ul className="nav nav-tabs mb-4" id="myTab" role="tablist">
