@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom"
+import {useEffect, useState} from "react";
+import {useLiveQuery} from "dexie-react-hooks";
+import {db} from "../../db/database.js";
 
 function NavBar() {
+
+    const totalBookshelf = useLiveQuery(
+        () => db.books.count(),
+        []
+    );
 
     return(
         <>
@@ -89,7 +97,9 @@ function NavBar() {
                             {/*Right*/}
                             <ul className="navbar-nav">
                                 <li className="nav-item">
-                                    <Link to="/bookshelf" className="nav-link">My Bookshelf</Link>
+                                    <Link to="/bookshelf" className="nav-link">
+                                        My Bookshelf <span className="badge text-bg-secondary">{totalBookshelf}</span>
+                                    </Link>
                                 </li>
                             </ul>
 
