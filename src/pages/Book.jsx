@@ -1,6 +1,6 @@
-import {useParams} from "react-router-dom";
-import {useEffect, useState} from "react";
-import {getAuthorName, getBook} from "../services/api.js";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getAuthorName, getBook } from "../services/api.js";
 import Description from "../components/books/BookDescription.jsx";
 import BookButton from "../components/books/BookDropdown.jsx";
 import BookCoverCarousel from "../components/books/BookCoverCarousel.jsx";
@@ -47,11 +47,11 @@ export default function Book() {
         <>
             <div className="row g-5">
 
-                <div className="col-6">
+                <div className="col-md-6">
                     <BookCoverCarousel book={book} />
                 </div>
 
-                <div className="col-6 d-flex flex-column row-gap-3">
+                <div className="col-md-6 d-flex flex-column row-gap-3">
 
                     <div>
                         <h1>{book.title}</h1>
@@ -68,9 +68,9 @@ export default function Book() {
                         </p>
                     </div>
 
-                    <BookButton book={book}/>
+                    <BookButton book={book} />
 
-                    <Description content={book.description}/>
+                    <Description content={book.description} />
 
                 </div>
             </div>
