@@ -10,7 +10,7 @@ export async function seedDatabase() {
             title: "The Night Circus",
             bookKey: "/works/OL16086747W",
             authors: [
-                { key: "/authors/OL6976354W", name: "Erin Morgenstern" }
+                { key: "/authors/OL6976354A", name: "Erin Morgenstern" }
             ],
             bookCovers: ["14579344"]
         },
