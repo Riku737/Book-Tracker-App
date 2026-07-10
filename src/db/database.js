@@ -50,7 +50,8 @@ async function initializeDatabase() {
     const bookCount = await db.books.count();
     if (bookCount === 0) {
         await seedDatabase();
-    } else {
-        resetDatabase(); // Reset entire database on load (tentative)
-    }
+    } 
+    // else {
+    //     resetDatabase(); // Reset entire database on load (tentative)
+    // }
 }
