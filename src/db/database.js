@@ -1,5 +1,6 @@
 import { Dexie } from "dexie";
-import { seedDatabase } from './seed.js'
+// import { useLiveQuery } from "dexie-react-hooks";
+import { seedDatabase } from './seeder.js'
 
 export const db = new Dexie("MyBookshelf");
 
@@ -27,6 +28,10 @@ export async function addToBookshelf(status, title, bookKey, authors, bookCovers
     } else {
         await resetDatabase();
     }
+}
+
+export function getBooksByStatus(status) {
+    return db.books.where({ status }).toArray();
 }
 
 async function resetDatabase() {

@@ -1,23 +1,87 @@
-import { db } from "../db/database.js";
-import {useEffect, useState} from "react";
+import {getBooksByStatus} from "../db/database.js";
+import { useState, useEffect } from "react";
 import BookshelfBookCard from "../components/books/BookshelfBookCard.jsx";
 
 export default function Bookshelf() {
 
     const [books, setBooks] = useState([]);
+    const [status, setStatus] = useState("want_to_read");
 
     useEffect(() => {
-        db.books.toArray().then(setBooks);
-    }, []);
+        getBooksByStatus(status).then(setBooks);
+    }, [status]);
 
     return(
         <>
-            <h1>Bookshelf</h1>
+            <h1 className="mb-4">Bookshelf</h1>
 
-            <div className="row g-4">
-                {books.map((book) => (
-                    <BookshelfBookCard book={book} key={book.id}/>
-                ))}
+            <ul className="nav nav-tabs mb-4" id="myTab" role="tablist">
+                <li className="nav-item" role="presentation">
+                    <button onClick={ () => setStatus("want_to_read") } className="nav-link active" id="home-tab" data-bs-toggle="tab"
+                            data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane"
+                            aria-selected="true">Want to Read
+                    </button>
+                </li>
+                <li className="nav-item" role="presentation">
+                    <button onClick={ () => setStatus("reading") } className="nav-link" id="profile-tab" data-bs-toggle="tab"
+                            data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane"
+                            aria-selected="false">Read
+                    </button>
+                </li>
+                <li className="nav-item" role="presentation">
+                    <button onClick={ () => setStatus("read") } className="nav-link" id="contact-tab" data-bs-toggle="tab"
+                            data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane"
+                            aria-selected="false">Reading
+                    </button>
+                </li>
+                <li className="nav-item" role="presentation">
+                    <button onClick={ () => setStatus("dnf") } className="nav-link" id="contact-tab" data-bs-toggle="tab"
+                            data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane"
+                            aria-selected="false">Did Not Finish
+                    </button>
+                </li>
+            </ul>
+            <div className="tab-content" id="myTabContent">
+                <div className="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+                     tabIndex="0">
+
+                    <div className="row g-4">
+                        {books.map((book) => (
+                            <BookshelfBookCard book={book} key={book.id}/>
+                        ))}
+                    </div>
+
+                </div>
+                <div className="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
+                     tabIndex="0">
+
+                    <div className="row g-4">
+                        {books.map((book) => (
+                            <BookshelfBookCard book={book} key={book.id}/>
+                        ))}
+                    </div>
+
+                </div>
+                <div className="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab"
+                     tabIndex="0">
+
+                    <div className="row g-4">
+                        {books.map((book) => (
+                            <BookshelfBookCard book={book} key={book.id}/>
+                        ))}
+                    </div>
+
+                </div>
+                <div className="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab"
+                     tabIndex="0">
+
+                    <div className="row g-4">
+                        {books.map((book) => (
+                            <BookshelfBookCard book={book} key={book.id}/>
+                        ))}
+                    </div>
+
+                </div>
             </div>
         </>
     );
