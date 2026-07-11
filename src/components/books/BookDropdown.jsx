@@ -1,6 +1,6 @@
 import { addToBookshelf } from "../../db/database.js";
 
-function BookDropdown({book}) {
+function BookDropdown({ book }) {
 
     function addToBookshelfButton(status) {
         const handleAdd = async () => {
@@ -13,20 +13,19 @@ function BookDropdown({book}) {
         handleAdd();
     }
 
-    return(
+    return (
         <>
-            <div className="input-group">
-                <button onClick={() => addToBookshelfButton("want_to_read")} type="button" className="btn btn-primary ">Want to Read</button>
-                <button type="button"
-                        className="btn btn-primary dropdown-toggle dropdown-toggle-split"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                    <span className="visually-hidden">Toggle Dropdown</span>
+            <div className="dropdown">
+                <button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Add to Bookshelf
                 </button>
-                <ul className="dropdown-menu dropdown-menu-end">
-                    <li><button onClick={() => addToBookshelfButton("reading")} className="dropdown-item" type="button">Currently Reading</button></li>
-                    <li><button onClick={() => addToBookshelfButton("read")} className="dropdown-item" type="button">Read</button></li>
-                    <li><button onClick={() => addToBookshelfButton("dnf")} className="dropdown-item" type="button">Did Not Finish</button></li>
+                <ul className="dropdown-menu">
+                    <li><button onClick={() => addToBookshelfButton("want_to_read")} type="button" className="dropdown-item">Want to Read</button></li>
+                    <li><button onClick={() => addToBookshelfButton("reading")} type="button" className="dropdown-item">Currently Reading</button></li>
+                    <li><button onClick={() => addToBookshelfButton("read")} type="button" className="dropdown-item">Read</button></li>
+                    <li><button onClick={() => addToBookshelfButton("dnf")} type="button" className="dropdown-item">Did Not Finish</button></li>
+                    <li><hr className="dropdown-divider" /></li>
+                    <li><button type="button" className="dropdown-item">Remove From Bookshelf</button></li>
                 </ul>
             </div>
         </>
