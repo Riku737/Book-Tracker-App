@@ -10,6 +10,7 @@ export default function Search() {
 
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
 
@@ -20,8 +21,10 @@ export default function Search() {
             try {
                 const data = await searchBooks(query);
                 setBooks(data);
+                setError(null);
             } catch (e) {
-                console.error(e);
+                console.log(e);
+                setError("Failed to search books...");
             } finally {
                 setLoading(false);
             }
@@ -36,6 +39,8 @@ export default function Search() {
     return(
         <>
             <h1 className="mb-4">{query ?? "All"}</h1>
+
+            {error && <p>{error}</p>}
 
             {loading ? (
                 <p>Loading...</p>
