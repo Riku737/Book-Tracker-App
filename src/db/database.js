@@ -30,6 +30,10 @@ export async function addToBookshelf(status, title, bookKey, authors, bookCovers
     return db.books.add(bookData);
 }
 
+// async function bookExists(book) {
+//     const existingBook = await db.books.where("bookKey").equals(book.key);
+// }
+
 // Return books where book = specified status
 export function getBooksByStatus(status) {
     return db.books.where({ status }).toArray();
