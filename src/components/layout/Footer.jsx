@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 function Footer() {
 
     return(
@@ -6,23 +8,23 @@ function Footer() {
             <div className="container">
                 <div className="row">
 
-                    <div className="col-3">
+                    <div className="col-lg-3 col-6">
                         <h6>BookBook</h6>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed iaculis elit. Donec bibendum in elit in mollis.</p>
+                        <p>A clean, simple catalog where you can organize every book in your reading life. It's your bookshelf.</p>
                     </div>
 
-                    <div className="col-3">
+                    <div className="col-lg-3 col-6">
                         <h6>Bookshelf</h6>
                         <ul className="list-unstyled d-flex flex-column gap-2">
-                            <li>Want to Read</li>
-                            <li>Currently Reading</li>
-                            <li>Read</li>
-                            <li>Did Not Finish</li>
+                            <li><Link to="/bookshelf/want_to_read">Want to Read</Link></li>
+                            <li><Link to="/bookshelf/reading">Currently Reading</Link></li>
+                            <li><Link to="/bookshelf/read">Read</Link></li>
+                            <li><Link to="/bookshelf/dnf">Did Not Finish</Link></li>
                         </ul>
                     </div>
 
-                    <div className="col-3">
-                        <h6>Help</h6>
+                    <div className="col-lg-3 col-6">
+                        <h6>Trending</h6>
                         <ul className="list-unstyled d-flex flex-column gap-2">
                             <li>Text</li>
                             <li>Text</li>
@@ -31,8 +33,8 @@ function Footer() {
                         </ul>
                     </div>
 
-                    <div className="col-2">
-                        <h6>About</h6>
+                    <div className="col-lg-3 col-6">
+                        <h6>Subject</h6>
                         <ul className="list-unstyled d-flex flex-column gap-2">
                             <li>Text</li>
                             <li>Text</li>
