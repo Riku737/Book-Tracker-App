@@ -1,15 +1,16 @@
 import './css/App.css';
 import { Routes, Route } from "react-router-dom";
 
-import Home from './pages/Home';
-
+// Components
 import NavBar from './components/layout/NavBar.jsx';
 import Footer from './components/layout/Footer.jsx';
 
+// Pages
+import Home from './pages/Home';
 import Book from "./pages/Book";
 import Author from "./pages/Author";
-
 import Bookshelf from "./pages/Bookshelf.jsx";
+import Search from "./pages/Search.jsx";
 
 export default function App() {
 
@@ -21,16 +22,21 @@ export default function App() {
 
 				<Routes>
 
+					{/*Home*/}
 					<Route path="/" element={<Home />} />
 
-					<Route path="/books" element={<Book />} />
+					{/*Search*/}
+					<Route path="/search" element={<Search />} />
 
+					{/*Books*/}
+					<Route path="/books" element={<Book />} />
 					<Route path="/books/:id" element={<Book />} />
 
+					{/*Authors*/}
 					<Route path="/authors" element={<Home />} />
-
 					<Route path="/authors/:id" element={<Author />} />
 
+					{/*Bookshelf*/}
 					<Route path='/bookshelf' element={<Bookshelf />} />
 					<Route path="/bookshelf/:bookshelfStatus" element={<Bookshelf />} />
 
