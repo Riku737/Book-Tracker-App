@@ -23,6 +23,8 @@ export default function Author() {
                 // data["books"] = await getAuthorBooks(id);
                 setAuthor(data);
 
+                document.title = `${author.name} | BookBook`;
+
             } catch (e) { // If API call fails
                 console.log(e);
                 setError("Failed to load author.");

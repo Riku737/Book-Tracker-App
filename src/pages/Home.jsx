@@ -30,6 +30,9 @@ export default function Home() {
 
     return (
         <>
+            {/*Page title*/}
+            <title>Home | BookBook</title>
+
             <section>
                 <h1 className="mb-4">Home</h1>
             </section>

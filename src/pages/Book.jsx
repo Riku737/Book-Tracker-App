@@ -27,6 +27,8 @@ export default function Book() {
                 data["authors"] = await getAuthorName(data.authors);
                 setBook(data);
 
+                document.title = `${data.title} | BookBook`; // Page title
+
             } catch (e) {
                 console.log(e);
                 setError("Failed to load book.");

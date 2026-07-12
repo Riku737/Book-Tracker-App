@@ -2,6 +2,7 @@ import BookshelfBookCard from "../components/books/BookshelfBookCard.jsx";
 import { db } from "../db/database.js";
 import { useLiveQuery } from "dexie-react-hooks";
 import {useNavigate, useParams} from 'react-router-dom';
+import {useEffect} from "react";
 
 export default function Bookshelf() {
 
@@ -35,6 +36,17 @@ export default function Bookshelf() {
     function handleTabClick(newStatus) {
         navigate(`/bookshelf/${newStatus}`);
     }
+
+    useEffect(() => {
+        const statusMap = {
+            want_to_read: "Want to Read",
+            reading: "Currently Reading",
+            read: "Read",
+            dnf: "Did Not Finish"
+        }
+
+        document.title = `${statusMap[currentStatus]} | BookBook` // Page title
+    }, [currentStatus]);
 
     return (
         <>

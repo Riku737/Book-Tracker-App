@@ -32,13 +32,15 @@ export default function Search() {
         }
         fetchResults();
 
+        document.title = `${query ?? "Search"} | BookBook`; // Dynamic page title
+
     }, [query]);
 
     // console.log(searchParams);
 
     return(
         <>
-            <h1 className="mb-4">{query ?? "All"}</h1>
+            <h1 className="mb-4">{query ?? "Search by title or author"}</h1>
 
             {error && <p>{error}</p>}
 
