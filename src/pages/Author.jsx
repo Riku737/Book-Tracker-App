@@ -23,7 +23,7 @@ export default function Author() {
                 // data["books"] = await getAuthorBooks(id);
                 setAuthor(data);
 
-                document.title = `${author.name} | BookBook`;
+                document.title = `${data.name} | BookBook`; // Dynamic page title
 
             } catch (e) { // If API call fails
                 console.log(e);
