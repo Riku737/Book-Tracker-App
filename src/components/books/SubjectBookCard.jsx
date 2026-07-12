@@ -1,7 +1,10 @@
-export default function BookshelfBookCard({book}) {
+export default function SubjectBookCard({book}) {
 
     // Extract book ID
-    let book_id = book.bookKey.split("/")[2];
+
+    console.log(book);
+
+    let book_id = book.key.split("/")[2];
     const book_link = `/books/${book_id}`;
 
     return(
@@ -11,12 +14,9 @@ export default function BookshelfBookCard({book}) {
                 <div className="d-flex gap-2 h-100 w-100 d-flex flex-column">
 
                     {/*Book Cover*/}
-                    <a className="bg-light ratio ratio-1x1 d-flex justify-content-center rounded link-underline link-underline-opacity-0 link-underline-opacity-100-hover" href={book_link}>
+                    <a href={book_link} className="bg-light ratio ratio-1x1 d-flex justify-content-center rounded link-underline link-underline-opacity-0 link-underline-opacity-100-hover">
                         <img
-                            src={book.bookCovers ? (`https://covers.openlibrary.org/b/id/${book.bookCovers[0]}-M.jpg`) : (`https://placehold.co/400x600?text=No+Cover`)}
-                            onError={(e) => {
-                                e.target.src = "https://placehold.co/400x600?text=No+Cover";
-                            }}
+                            src={book.cover_id ? (`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`) : (`https://placehold.co/400x600?text=No+Cover`)}
                             className="object-fit-contain p-4"
                             alt={book.title}
                         />
@@ -31,7 +31,7 @@ export default function BookshelfBookCard({book}) {
                             {(book?.authors || []).map((author, index) => (
                                 <span key={index}>
                                 <a
-                                    href={`${author.key}`}>
+                                    href={`/authors/${author.key?.[index]}`}>
                                     {author.name}
                                 </a>
                                     {index < book.authors.length - 1 && ", "}

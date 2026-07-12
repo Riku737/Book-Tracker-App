@@ -1,7 +1,7 @@
 import { useSearchParams } from 'react-router-dom';
 import {useEffect, useState} from "react";
 import {searchBooks} from "../services/api.js";
-import HomeBookCard from "../components/books/HomeBookCard.jsx";
+import HomeBookCard from "../components/books/SearchBookCard.jsx";
 
 export default function Search() {
 

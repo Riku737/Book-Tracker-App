@@ -79,3 +79,16 @@ export async function getAuthorBooks(author_key){
 	// console.log(data)
 	return (data.entries);
 }
+
+// Returns books based on subject
+export async function getBooksBySubject(subject) {
+	const response = await fetch(`https://openlibrary.org/subjects/${encodeURIComponent(subject).trim()}.json?details=false&limit=10`);
+
+	if (!response.ok) {
+		throw new Error(`Unable to find books by subject ${subject}.`);
+	}
+
+	const data = await response.json();
+
+	return(data.works);
+}

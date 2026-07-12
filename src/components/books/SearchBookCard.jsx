@@ -4,7 +4,7 @@ The components HomeBookCard and BookshelfBookCard are identical visually.
 However, the underlying code are completely different due to the inconsistent format of the API.
  */
 
-export default function HomeBookCard({book}) {
+export default function SearchBookCard({book}) {
 
     // Extract book ID
     let book_id = book.key.split("/")[2];

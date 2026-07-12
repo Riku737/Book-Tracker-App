@@ -11,6 +11,7 @@ import Book from "./pages/Book";
 import Author from "./pages/Author";
 import Bookshelf from "./pages/Bookshelf.jsx";
 import Search from "./pages/Search.jsx";
+import Subject from "./pages/Subject.jsx";
 
 export default function App() {
 
@@ -24,6 +25,7 @@ export default function App() {
 
 					{/*Home*/}
 					<Route path="/" element={<Home />} />
+					<Route path="/home" element={<Home />} />
 
 					{/*Search*/}
 					<Route path="/search" element={<Search />} />
@@ -32,13 +34,17 @@ export default function App() {
 					<Route path="/books" element={<Book />} />
 					<Route path="/books/:id" element={<Book />} />
 
+					{/*Subjects*/}
+					<Route path='/subjects' element={<Subject />} />
+					<Route path="/subjects/:subject" element={<Subject />} />
+
 					{/*Authors*/}
 					<Route path="/authors" element={<Home />} />
 					<Route path="/authors/:id" element={<Author />} />
 
 					{/*Bookshelf*/}
 					<Route path='/bookshelf' element={<Bookshelf />} />
-					<Route path="/bookshelf/:bookshelfStatus" element={<Bookshelf />} />
+					<Route path="/bookshelf/:status" element={<Bookshelf />} />
 
 				</Routes>
 

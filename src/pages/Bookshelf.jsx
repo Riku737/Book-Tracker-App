@@ -15,9 +15,9 @@ export default function Bookshelf() {
     - undefined => Show bookshelf without specified tab
     */
 
-    const { bookshelfStatus } = useParams(); // Get status from URL
+    const { status } = useParams(); // Get status from URL
     const navigate = useNavigate();
-    const currentStatus = bookshelfStatus ?? "want_to_read";
+    const currentStatus = status ?? "want_to_read";
 
     const books = useLiveQuery(
         () => db.books.where({ status: currentStatus }).toArray(),
@@ -58,7 +58,7 @@ export default function Bookshelf() {
                 <li className="nav-item" role="presentation">
                     <button
                         onClick={() => handleTabClick("want_to_read")}
-                        className={`nav-link ${(bookshelfStatus === "want_to_read" || bookshelfStatus === undefined) && "active"}`}
+                        className={`nav-link ${(status === "want_to_read" || status === undefined) && "active"}`}
                         id="want_to_read"
                         type="button"
                         role="tab"
@@ -72,7 +72,7 @@ export default function Bookshelf() {
                 <li className="nav-item" role="presentation">
                     <button
                         onClick={() => handleTabClick("reading")}
-                        className={`nav-link ${bookshelfStatus === "reading" && "active"}`}
+                        className={`nav-link ${status === "reading" && "active"}`}
                         id="reading"
                         type="button"
                         role="tab"
@@ -86,7 +86,7 @@ export default function Bookshelf() {
                 <li className="nav-item" role="presentation">
                     <button
                         onClick={() => handleTabClick("read")}
-                        className={`nav-link ${bookshelfStatus === "read" && "active"}`}
+                        className={`nav-link ${status === "read" && "active"}`}
                         id="read"
                         type="button"
                         role="tab"
@@ -100,7 +100,7 @@ export default function Bookshelf() {
                 <li className="nav-item" role="presentation">
                     <button
                         onClick={() => handleTabClick("dnf")}
-                        className={`nav-link ${bookshelfStatus === "dnf" && "active"}`}
+                        className={`nav-link ${status === "dnf" && "active"}`}
                         id="dnf"
                         type="button"
                         role="tab"
@@ -115,7 +115,7 @@ export default function Bookshelf() {
             <div className="tab-content" id="myTabContent">
             {/*Want to Read*/}
                 <div
-                    className={`tab-pane fade ${(bookshelfStatus === "want_to_read" || bookshelfStatus === undefined) && "show active"}`}
+                    className={`tab-pane fade ${(status === "want_to_read" || status === undefined) && "show active"}`}
                     role="tabpanel"
                     aria-labelledby="want_to_read-tab"
                     tabIndex="0"
@@ -130,7 +130,7 @@ export default function Bookshelf() {
                 </div>
                 {/*Currently Reading*/}
                 <div
-                    className={`tab-pane fade ${bookshelfStatus === "reading" && "show active"}`}
+                    className={`tab-pane fade ${status === "reading" && "show active"}`}
                     role="tabpanel"
                     aria-labelledby="reading-tab"
                     tabIndex="0"
@@ -145,7 +145,7 @@ export default function Bookshelf() {
                 </div>
                 {/*Read*/}
                 <div
-                    className={`tab-pane fade ${bookshelfStatus === "read" && "show active"}`}
+                    className={`tab-pane fade ${status === "read" && "show active"}`}
                     role="tabpanel"
                     aria-labelledby="read-tab"
                     tabIndex="0"
@@ -160,7 +160,7 @@ export default function Bookshelf() {
                 </div>
                 {/*Did Not Finish*/}
                 <div
-                    className={`tab-pane fade ${bookshelfStatus === "dnf" && "show active"}`}
+                    className={`tab-pane fade ${status === "dnf" && "show active"}`}
                     role="tabpanel"
                     aria-labelledby="dnf-tab"
                     tabIndex="0"

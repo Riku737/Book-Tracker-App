@@ -19,6 +19,7 @@ function Footer() {
                             <h6>Discover</h6>
                             <ul className="list-unstyled d-flex flex-column gap-2">
                                 <li><Link to="/home">Home</Link></li>
+                                <li><Link to="/subjects">Subjects</Link></li>
                                 <li><Link to="/search">Search</Link></li>
                             </ul>
                         </div>
@@ -36,10 +37,10 @@ function Footer() {
                         <div className="col-lg-3 col-6">
                             <h6>Subject</h6>
                             <ul className="list-unstyled d-flex flex-column gap-2">
-                                <li><Link to="/bookshelf/want_to_read">Want to Read</Link></li>
-                                <li><Link to="/bookshelf/want_to_read">Want to Read</Link></li>
-                                <li><Link to="/bookshelf/want_to_read">Want to Read</Link></li>
-                                <li><Link to="/bookshelf/want_to_read">Want to Read</Link></li>
+                                <li><Link to="/subjects/Arts">Arts</Link></li>
+                                <li><Link to="/subjects/STEM">STEM</Link></li>
+                                <li><Link to="/subjects/Business">Business</Link></li>
+                                <li><Link to="/subjects/History">History</Link></li>
                             </ul>
                         </div>
 

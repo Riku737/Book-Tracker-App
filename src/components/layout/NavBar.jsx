@@ -49,9 +49,14 @@ function NavBar() {
                                         Subject
                                     </a>
                                     <ul className="dropdown-menu">
-                                        <li><Link to="" className="dropdown-item">Action</Link></li>
-                                        <li><Link to="" className="dropdown-item">Another action</Link></li>
-                                        <li><Link to="" className="dropdown-item">Something else here</Link></li>
+                                        <li><Link to="/subjects/Arts" className="dropdown-item">Arts</Link></li>
+                                        <li><Link to="/subjects/Animals" className="dropdown-item">Animals</Link></li>
+                                        <li><Link to="/subjects/STEM" className="dropdown-item">STEM</Link></li>
+                                        <li><Link to="/subjects/Business" className="dropdown-item">Business</Link></li>
+                                        <li><Link to="/subjects/History" className="dropdown-item">History</Link></li>
+                                        <li><Link to="/subjects/Health" className="dropdown-item">Health</Link></li>
+                                        <li><Link to="/subjects/Biography" className="dropdown-item">Biography</Link></li>
+                                        <li><Link to="/subjects/Social%20Sciences" className="dropdown-item">Social Sciences</Link></li>
                                     </ul>
                                 </li>
 
