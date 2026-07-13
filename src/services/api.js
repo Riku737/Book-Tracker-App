@@ -67,19 +67,6 @@ export async function getBook(book_key) {
 	return (data);
 }
 
-// Return list of books by author
-export async function getAuthorBooks(author_key){
-	const response = await fetch(`${BASE_URL}/authors/${author_key}/works.json?limit=10`);
-
-	if (!response.ok) { // Response validation (e.g., error 404)
-		throw new Error(`Unable to find an author with ID ${author_key}.`);
-	}
-
-	const data = await response.json();
-	// console.log(data)
-	return (data.entries);
-}
-
 // Returns books based on subject
 export async function getBooksBySubject(subject) {
 	const response = await fetch(`https://openlibrary.org/subjects/${encodeURIComponent(subject).trim()}.json?details=false&limit=10`);

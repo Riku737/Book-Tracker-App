@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getAuthor} from "../services/api.js";
+import BookDescription from "../components/books/BookDescription.jsx";
+import LoadingAuthor from "../components/loading/LoadingAuthor.jsx";
 
 export default function Author() {
 
@@ -37,7 +39,7 @@ export default function Author() {
 
     if (loading) {
         return(
-            <h1>Loading...</h1>
+            <LoadingAuthor/>
         );
     }
 
@@ -47,16 +49,12 @@ export default function Author() {
         );
     }
 
-    // console.log(author);
+    console.log(author);
 
     return(
         <>
             <h1>{author.name}</h1>
-
-            <div className="row">
-
-            </div>
-
+            <p>{"bio" in author ? author.bio.value : "No Bio Found."}</p>
         </>
     );
 }
