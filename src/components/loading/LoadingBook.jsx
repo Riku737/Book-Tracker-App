@@ -5,7 +5,7 @@ export default function LoadingBook() {
             <div className="row g-5">
 
                 <div className="col-md-6">
-                    <div className="ratio ratio-1x1 rounded"></div>
+                    <div className="ratio bg-light ratio-1x1 rounded"></div>
                 </div>
 
                 <div className="placeholder-glow col-md-6 d-flex flex-column row-gap-3">
