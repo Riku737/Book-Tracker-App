@@ -25,7 +25,7 @@ function Footer() {
                         </div>
 
                         <div className="col-lg-3 col-6">
-                            <h6>My Bookshelf</h6>
+                            <h6>Bookshelf</h6>
                             <ul className="list-unstyled d-flex flex-column gap-2">
                                 <li><Link to="/bookshelf/want_to_read">Want to Read</Link></li>
                                 <li><Link to="/bookshelf/reading">Currently Reading</Link></li>

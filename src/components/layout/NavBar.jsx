@@ -71,7 +71,7 @@ function NavBar() {
                             <ul className="navbar-nav">
                                 <li className="nav-item">
                                     <Link to="/bookshelf" className="nav-link">
-                                        My Bookshelf ({totalBookshelf ?? 0})
+                                        Bookshelf ({totalBookshelf ?? 0})
                                     </Link>
                                 </li>
                             </ul>
