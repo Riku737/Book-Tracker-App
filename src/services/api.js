@@ -6,6 +6,16 @@ REST (Representational State Transfer) API
 
 const BASE_URL = "https://openlibrary.org";
 
+/*
+Open Library compliance for request rate limiting
+Too many requests result in HTTP 429 Too Many Requests
+*/
+function sleep(seconds=2) {
+	return new Promise(resolve => {
+		setTimeout(resolve, seconds * 1000);
+	});
+}
+
 // Asynchronous operations/tasks that takes time and mandates a Promise (give data eventually) to be returned
 
 // Return the trendiest books (weekly) from Open Library
@@ -16,6 +26,7 @@ export async function getTrendingBooks() {
 	3. Store response in response variable (info about request e.g., status codes)
 	4. Convert response (raw text data) into a JavaScript object (JSON object) to be easily used
 	*/
+	await sleep();
 	const response = await fetch(`${BASE_URL}/trending/weekly.json?limit=10&language=eng`);
 	const data = await response.json();
 	return (data.works);
@@ -23,6 +34,7 @@ export async function getTrendingBooks() {
 
 // Return searched information (books)
 export async function searchBooks(query) {
+	await sleep();
 	const response = await fetch(`${BASE_URL}/search.json?q=${encodeURIComponent(query)}&limit=10&language=eng&mode=everything`);
 	const data = await response.json();
 	return (data.docs);
@@ -30,6 +42,8 @@ export async function searchBooks(query) {
 
 // Return information of a specific author
 export async function getAuthor(author_key) {
+	await sleep();
+
 	const response = await fetch(`${BASE_URL}/authors/${author_key}.json`);
 
 	if (!response.ok) { // Response validation (e.g., error 404)
@@ -43,6 +57,7 @@ export async function getAuthor(author_key) {
 
 // Return name and key dictionary of a specific author
 export async function getAuthorName (authors) {
+	await sleep();
 
 	const author_info = [];
 
@@ -58,6 +73,8 @@ export async function getAuthorName (authors) {
 
 // Return information about a specific book
 export async function getBook(book_key) {
+	await sleep();
+
 	const response = await fetch(`${BASE_URL}/works/${book_key}.json`);
 
 	if (!response.ok) { // Response validation (e.g., error 404)
@@ -71,6 +88,8 @@ export async function getBook(book_key) {
 
 // Returns books based on subject
 export async function getBooksBySubject(subject) {
+	await sleep();
+
 	const response = await fetch(`https://openlibrary.org/subjects/${encodeURIComponent(subject).trim()}.json?details=false&limit=10`);
 
 	if (!response.ok) {
