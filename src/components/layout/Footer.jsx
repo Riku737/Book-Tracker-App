@@ -51,7 +51,8 @@ function Footer() {
 
                 {/*Website notice/disclaimer*/}
                 <small>
-                    <p>This website is a personal, non-commercial project. All book information and cover images are sourced from the <a href="https://openlibrary.org/" target="_blank">Open Library API</a>, and all trademarks belong to their respective owners.</p>
+                    <p>This app is a personal, non‑commercial project built solely for learning and portfolio purposes. It is not affiliated with or endorsed by any orgniazation, and it is not intended for real users or practical use. The project exists only as a way to experiment, practice, and develop new skills.</p>
+                    <p>All book information and cover images are sourced from the <a href="https://openlibrary.org/" target="_blank">Open Library API</a>, and all trademarks belong to their respective owners.</p>
                     <p>This site stores data locally in your browser using IndexedDB. No information is shared or uploaded.</p>
                 </small>
 
