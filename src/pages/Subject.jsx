@@ -39,7 +39,7 @@ export default function Subject() {
 
     if (loading) {
         return(
-            <LoadingBookCards />
+            <LoadingBookCards title={subject} />
         );
     }
 

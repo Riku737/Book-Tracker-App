@@ -41,7 +41,7 @@ export default function Search() {
 
     if (loading) {
         return(
-            <LoadingBookCards />
+            <LoadingBookCards title={query} />
         )
     }
 

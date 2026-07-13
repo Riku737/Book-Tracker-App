@@ -32,7 +32,7 @@ export default function Home() {
 
     if (loading) {
         return(
-            <LoadingBookCards/>
+            <LoadingBookCards title={"Home"}/>
         );
     }
 

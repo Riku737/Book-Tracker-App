@@ -1,6 +1,6 @@
 import PlaceholderBookCard from "./PlaceholderBookCard.jsx";
 
-export default function LoadingBookCards() {
+export default function LoadingBookCards({title}) {
 
     const items = [];
 
@@ -10,7 +10,7 @@ export default function LoadingBookCards() {
 
     return(
         <>
-            <h1 className="mb-4">Loading...</h1>
+            <h1 className="mb-4">{title}</h1>
             <div className="row g-4">
                 {items}
             </div>
