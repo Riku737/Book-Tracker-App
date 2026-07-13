@@ -36,6 +36,7 @@ export default function Bookshelf() {
         read: allBooks.filter(book => book.status === "read").length ?? 0,
         reading: allBooks.filter(book => book.status === "reading").length ?? 0,
         dnf: allBooks.filter(book => book.status === "dnf").length ?? 0,
+        all: allBooks.length ?? 0
     };
 
     // Update URL to appropriate status
@@ -55,7 +56,7 @@ export default function Bookshelf() {
 
     return (
         <section>
-            <h1 className="mb-4">My Bookshelf</h1>
+            <h1 className="mb-4">My Bookshelf ({totalBooks.all})</h1>
 
             {/*Tab Buttons*/}
             <section>
