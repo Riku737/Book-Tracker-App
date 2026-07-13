@@ -12,16 +12,16 @@ Status:
 */
 
 db.version(1).stores({
-    books: '++id, status, title, bookKey, authors, bookCovers',
+    books: '++id, status, title, bookKey, authors, bookCovers, date',
 });
 
 export const databaseReady = initializeDatabase();
 
 // Add book to bookshelf (and modify status of existing book)
-export async function addToBookshelf(status, title, bookKey, authors, bookCovers) {
+export async function addToBookshelf(status, title, bookKey, authors, bookCovers, date) {
 
     const existingBook = await db.books.where("bookKey").equals(bookKey).first();
-    const bookData = { status, title, bookKey, authors, bookCovers };
+    const bookData = { status, title, bookKey, authors, bookCovers, date };
 
     if (existingBook) {
         return db.books.update(existingBook.id, bookData);

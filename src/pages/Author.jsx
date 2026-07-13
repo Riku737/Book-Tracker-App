@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getAuthor} from "../services/api.js";
-import BookDescription from "../components/books/BookDescription.jsx";
 import LoadingAuthor from "../components/loading/LoadingAuthor.jsx";
 
 export default function Author() {

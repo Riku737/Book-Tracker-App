@@ -11,7 +11,7 @@ function BookDropdown({ book }) {
 
     async function addToBookshelfButton(status) {
         try {
-            await addToBookshelf(status, book.title, book.key, book.authors, book.covers);
+            await addToBookshelf(status, book.title, book.key, book.authors, book.covers, new Date());
             setInBookshelf(true);
         } catch (error) {
             console.error('Error adding book to bookshelf', error);

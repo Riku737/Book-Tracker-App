@@ -38,6 +38,15 @@ export default function BookshelfBookCard({book}) {
                             </span>
                             ))}
                         </small></p>
+                        <p className="lh-sm">
+                            <small>
+                                Added {book.date.toLocaleDateString("en-US", {
+                                month: "short",
+                                day: "numeric",
+                                year: "numeric"
+                            })}
+                            </small>
+                        </p>
                     </div>
 
                 </div>

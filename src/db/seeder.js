@@ -12,7 +12,8 @@ export async function seedDatabase() {
             authors: [
                 { key: "/authors/OL6976354A", name: "Erin Morgenstern" }
             ],
-            bookCovers: ["14579344"]
+            bookCovers: ["14579344"],
+            date: new Date()
         },
         {
             // id: 2,
@@ -22,7 +23,8 @@ export async function seedDatabase() {
             authors: [
                 { key: "/authors/OL7234434A", name: "Andy Weir" }
             ],
-            bookCovers: ["15208263"]
+            bookCovers: ["15208263"],
+            date: new Date()
         },
         {
             // id: 3,
@@ -32,7 +34,8 @@ export async function seedDatabase() {
             authors: [
                 { key: "/authors/OL26320A", name: "J.R.R. Tolkien" }
             ],
-            bookCovers: ["15223072"]
+            bookCovers: ["15223072"],
+            date: new Date()
         },
         {
             // id: 4,
@@ -42,7 +45,8 @@ export async function seedDatabase() {
             authors: [
                 { key: "/authors/OL448939A", name: "David Foster Wallace" }
             ],
-            bookCovers: ["13186006"]
+            bookCovers: ["13186006"],
+            date: new Date()
         },
         {
             status: "read",
@@ -51,7 +55,8 @@ export async function seedDatabase() {
             authors: [
                 { key: "/authors/OL6941868A", name: "Ernest Cline" }
             ],
-            bookCovers: ["8737626", "8270105", "7023280", "7890580", "7887628", "8750149", "10870287", "10870290", "12535556", "8464095", "13218398", "10517265", "8494518", "12369565", "9367521"]
+            bookCovers: ["8737626", "8270105", "7023280", "7890580", "7887628", "8750149", "10870287", "10870290", "12535556", "8464095", "13218398", "10517265", "8494518", "12369565", "9367521"],
+            date: new Date()
         },
         {
             status: "want_to_read",
@@ -61,7 +66,8 @@ export async function seedDatabase() {
                 { key: "/authors/OL13511813A", name: "Soyoung Park" },
                 { key: "/authors/OL7849604A", name: "Joungmin Lee Comfort" }
             ],
-            bookCovers: ["14580611"]
+            bookCovers: ["14580611"],
+            date: new Date()
         }
     ])
 }
