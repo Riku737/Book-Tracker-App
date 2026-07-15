@@ -1,3 +1,9 @@
+/*
+Sass deprecation warnings are expected when compiling Sass with the latest version of Dart Sass.
+Bootstrap are working on a long-term fix, and in the meantime, these deprecation notices can be ignored.
+For more information: https://getbootstrap.com/docs/5.3/customize/sass/
+ */
+
 // 1. Functions (Required for things like color contrast)
 @import "../../node_modules/bootstrap/scss/functions";
 
