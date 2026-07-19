@@ -4,6 +4,7 @@ import {getAuthor} from "../services/api.js";
 
 // Components
 import Loading from "../components/loading/LoadingAuthor.jsx";
+import AuthorDescription from "../components/authors/AuthorDescription.jsx";
 
 export default function Author() {
 
@@ -51,11 +52,9 @@ export default function Author() {
     return(
         <section>
             {/*Author name*/}
-            <h1>{author.name}</h1>
+            <h1 className="mb-3">{author.name}</h1>
             {/*Author biography*/}
-            <p className="text-break" style={{"whiteSpace": "pre-line"}}>
-                {"bio" in author ? author.bio.value : "No bio found for author."}
-            </p>
+            <AuthorDescription authorBio={author.bio} />
         </section>
     );
 }

@@ -1,9 +1,8 @@
 import {useState} from "react";
+import ReactMarkdown from 'react-markdown';
 
 function BookDescription({ content }) {
 
-    let description;
-    let textLimit = false;
     const TEXTLENGTH = 300;
     const [open, setOpen] = useState(false);
 
@@ -12,7 +11,8 @@ function BookDescription({ content }) {
     1. Dictionary of two elements (type and value); or a
     2. Single string (only description data)
      */
-    if (content === null || content === undefined) {
+    let description;
+    if (!content) {
         description = "No description available.";
     } else if (Object.keys(content).length === 2) {
         description = content.value;
@@ -21,21 +21,27 @@ function BookDescription({ content }) {
     }
 
     // Decisionmaker on whether "read more" is necessary
-    if (description.length > TEXTLENGTH) {
-        textLimit = true;
-    }
+    let textLimit = description.length > TEXTLENGTH;
 
     // Controller for "read more" text
-    function readMore() {
+    function readMoreButton() {
         setOpen(!open);
+    }
+
+    // Output for description displayed on webpage
+    let displayedText;
+    if (!open && textLimit) {
+        displayedText = description.slice(0,TEXTLENGTH) + "...";
+    } else {
+        displayedText = description;
     }
 
     return(
         <>
-            <p className="text-break" style={{"whiteSpace": "pre-line"}}>
-                { !open && textLimit ? `${description.slice(0,TEXTLENGTH)}... ` : `${description} ` }
-                { textLimit && <button onClick={readMore} type="button" className="btn btn-link p-0 align-baseline">{open ? "Read Less" : "Read More"}</button> }
-            </p>
+            <div className="d-flex flex-column">
+                <ReactMarkdown>{displayedText}</ReactMarkdown>
+                { textLimit && <button onClick={readMoreButton} type="button" className="btn btn-link p-0 text-start">{open ? "Read Less" : "Read More"}</button> }
+            </div>
         </>
     );
 }
