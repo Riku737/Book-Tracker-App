@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 
 // API
-import { getTrendingBooks } from "../services/api";
+import { getTrendingBooks } from "../utils/api";
 
 // Components
 import Loading from "../components/loading/LoadingBookCards.jsx";

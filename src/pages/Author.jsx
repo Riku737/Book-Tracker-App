@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import {useEffect, useState} from "react";
-import {getAuthor} from "../services/api.js";
+import {getAuthor} from "../utils/api.js";
 
 // Components
 import Loading from "../components/loading/LoadingAuthor.jsx";

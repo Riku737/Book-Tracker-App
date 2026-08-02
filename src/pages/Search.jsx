@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import {useEffect, useState} from "react";
 
 // API
-import {searchBooks} from "../services/api.js";
+import {searchBooks} from "../utils/api.js";
 
 // Components
 import Card from "../components/books/cards/SearchBookCard.jsx";
