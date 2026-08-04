@@ -51,7 +51,7 @@ export async function getAuthor(author_key) {
 	}
 
 	const data = await response.json();
-	// console.log(data)
+	console.log(data)
 	return (data);
 }
 
@@ -69,6 +69,20 @@ export async function getAuthorName (authors) {
 	}
 
 	return (author_info);
+}
+
+// Fetch works by author ID
+export async function getAuthorBooks(author_key) {
+    await sleep();
+
+    const response = await fetch(`${BASE_URL}/authors/${author_key}/works.json`);
+
+    if (!response.ok) { // Response validation (e.g., error 404)
+        throw new Error(`Unable to find author's works given ID of ${author_key}.`);
+    }
+
+    const data = await response.json();
+    return data.entries;
 }
 
 // Return information about a specific book
