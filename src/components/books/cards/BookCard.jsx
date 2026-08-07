@@ -1,5 +1,4 @@
 import Authors from "../details/BookAuthors.jsx";
-import {getAuthorName} from "../../../utils/api.js";
 
 export default function BookCard({bookID, bookTitle, authorNames, authorIDs, coverID}) {
 
