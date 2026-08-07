@@ -55,20 +55,64 @@ export async function getAuthor(author_key) {
 	return (data);
 }
 
-// Return name and key dictionary of a specific author
+// Return name and key dictionary of specific author IDs
 export async function getAuthorName (authors) {
-	await sleep();
+    await sleep();
 
 	const author_info = [];
 
-	for (const author of authors) {
-		// console.log(author);
-		const response = await fetch(`${BASE_URL}${author.author.key}.json`);
+    for (const author of authors) {
+        // console.log(author);
+        const response = await fetch(`${BASE_URL}${author.author.key}.json`);
+
+		if (!response.ok) {
+			throw new Error(`Unable to find author with ID ${author.key}.`);
+		}
+
 		const data = await response.json();
 		author_info.push({"key": data.key, "name": data.name});
 	}
 
 	return (author_info);
+}
+
+// Return name and key dictionary of specific author IDs
+// Given authorIDs is a 2D array
+export async function getAuthorNames(authorIDs) {
+    await sleep();
+
+    const author_info = [];
+
+    for (const bookAuthors of authorIDs) {
+        const bookAuthorInfo = []; // Array of authors for this specific book
+
+        for (const authorID of bookAuthors) {
+            const response = await fetch(`${BASE_URL}/authors/${authorID}.json`);
+            if (!response.ok) {
+                throw new Error(`Unable to find author with ID ${authorID}.`);
+            }
+            const data = await response.json();
+            bookAuthorInfo.push({ "key": data.key.replace("/authors/", ""), "name": data.name });
+        }
+
+        author_info.push(bookAuthorInfo); // Adds the book's author array to the main list
+    }
+
+    return author_info; // This is a 2D array
+}
+
+// Fetch works by author ID
+export async function getAuthorBooks(author_key) {
+    await sleep();
+
+    const response = await fetch(`${BASE_URL}/authors/${author_key}/works.json?limit=10&language=eng`);
+
+    if (!response.ok) { // Response validation (e.g., error 404)
+        throw new Error(`Unable to find author's works given ID of ${author_key}.`);
+    }
+
+    const data = await response.json();
+    return data.entries;
 }
 
 // Return information about a specific book

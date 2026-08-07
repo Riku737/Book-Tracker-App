@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getAuthorName, getBook } from "../services/api.js";
+import { getAuthorName, getBook } from "../utils/api.js";
 
 // Components
 import Description from "../components/books/details/BookDescription.jsx";
@@ -29,7 +29,7 @@ export default function Book() {
                 setBook(data);
                 document.title = `${data.title} | BookBook`; // Dynamic page title
             } catch (e) {
-                console.log(e);
+                console.error(e);
                 setError("Failed to load book.");
             } finally {
                 setLoading(false);

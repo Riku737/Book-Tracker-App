@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import {useEffect, useState} from "react";
 
 // API
-import {searchBooks} from "../services/api.js";
+import {searchBooks} from "../utils/api.js";
 
 // Components
 import Card from "../components/books/cards/SearchBookCard.jsx";
@@ -26,6 +26,7 @@ export default function Search() {
             try {
                 const data = await searchBooks(query);
                 setBooks(data);
+                console.log(data);
             } catch (e) {
                 console.log(e);
                 setError("Failed to search books.");

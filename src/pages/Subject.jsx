@@ -2,8 +2,8 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 
-// API services
-import {getBooksBySubject} from "../services/api.js";
+// API utils
+import {getBooksBySubject} from "../utils/api.js";
 
 // Components
 import Card from "../components/books/cards/SubjectBookCard.jsx";

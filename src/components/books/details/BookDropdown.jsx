@@ -31,10 +31,10 @@ function BookDropdown({ book }) {
                 <ul className="dropdown-menu">
 
                     {/*Bookshelf actions*/}
-                    <li><button onClick={() => addToBookshelfButton("want_to_read")} type="button" className="dropdown-item">Want to Read</button></li>
-                    <li><button onClick={() => addToBookshelfButton("reading")} type="button" className="dropdown-item">Currently Reading</button></li>
-                    <li><button onClick={() => addToBookshelfButton("read")} type="button" className="dropdown-item">Read</button></li>
-                    <li><button onClick={() => addToBookshelfButton("dnf")} type="button" className="dropdown-item">Did Not Finish</button></li>
+                    <li><button onClick={() => addToBookshelfButton("want_to_read")} type="button" className="dropdown-item liveToastBtn">Want to Read</button></li>
+                    <li><button onClick={() => addToBookshelfButton("reading")} type="button" className="dropdown-item liveToastBtn">Currently Reading</button></li>
+                    <li><button onClick={() => addToBookshelfButton("read")} type="button" className="dropdown-item liveToastBtn">Read</button></li>
+                    <li><button onClick={() => addToBookshelfButton("dnf")} type="button" className="dropdown-item liveToastBtn">Did Not Finish</button></li>
 
                     {/*Remove from bookshelf action*/}
                     <li className={`${ !inBookshelf && "d-none"}`}><hr className="dropdown-divider" /></li>
