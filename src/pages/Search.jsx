@@ -26,6 +26,7 @@ export default function Search() {
             try {
                 const data = await searchBooks(query);
                 setBooks(data);
+                console.log(data);
             } catch (e) {
                 console.log(e);
                 setError("Failed to search books.");

@@ -29,7 +29,7 @@ export default function Book() {
                 setBook(data);
                 document.title = `${data.title} | BookBook`; // Dynamic page title
             } catch (e) {
-                console.log(e);
+                console.error(e);
                 setError("Failed to load book.");
             } finally {
                 setLoading(false);
