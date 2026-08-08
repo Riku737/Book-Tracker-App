@@ -10,7 +10,7 @@ export default function PlaceholderBookCard() {
 
                     {/*Book Title & Author*/}
                     <div className="d-flex flex-column placeholder-glow">
-                        <h6 className="fw-medium m-0 placeholder w-75"></h6>
+                        <h6 className="fw-medium m-0 mb-1 placeholder w-75"></h6>
                         <p className="m-0 fs-6 lh-sm placeholder w-100"></p>
                     </div>
 
