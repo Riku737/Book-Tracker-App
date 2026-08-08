@@ -36,7 +36,7 @@ export default function Author() {
 
                 setAuthor(data);
                 document.title = `${data.name} | BookBook`; // Dynamic page title
-                console.log(data);
+                // console.log(data);
             } catch (e) { // If API call fails
                 console.log(e);
                 setError("Failed to load author.");
