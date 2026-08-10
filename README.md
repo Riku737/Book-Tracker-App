@@ -67,3 +67,13 @@ ___
 package.json
 README.md
 ```
+
+---
+
+## Disclaimer
+
+This app is a personal, non‑commercial project built solely for learning and portfolio purposes. It is not affiliated with or endorsed by any orgniazation, and it is not intended for real users or practical use. The project exists only as a way to experiment, practice, and develop new skills.
+
+All book information and cover images are sourced from the Open Library API, and all trademarks belong to their respective owners.
+
+No personal data is collected, stored, or transmitted. Any data saved in your browser (via IndexedDB/Dexie.js) remains entirely on your device.
