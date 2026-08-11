@@ -11,13 +11,14 @@ export default function LoadingBook() {
                 <div className="placeholder-glow col-md-6 d-flex flex-column row-gap-3">
 
                     <div className="placeholder-glow">
+                        <p className="placeholder w-25 mb-2"></p>
                         <h1 className="placeholder w-100"></h1>
                         <p className="placeholder w-50"></p>
                     </div>
 
                     <a className="btn btn-primary disabled placeholder col-3" aria-disabled="true"></a>
 
-                    <p className="placeholder w-100 h-25"></p>
+                    <p className="placeholder w-100 h-25 mt-3"></p>
 
                 </div>
             </div>

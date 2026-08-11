@@ -64,6 +64,7 @@ export default function Author() {
     // Standard state
     return(
         <section>
+
             {/*Author name*/}
             <h1 className="mb-3">{author.name}</h1>
             {/*Author biography*/}

@@ -38,7 +38,7 @@ function BookDescription({ content }) {
 
     return(
         <>
-            <div className="d-flex flex-column">
+            <div className="d-flex flex-column mt-2">
                 <ReactMarkdown>{displayedText}</ReactMarkdown>
                 { textLimit && <button onClick={readMoreButton} type="button" className="btn btn-link p-0 text-start">{open ? "Read Less" : "Read More"}</button> }
             </div>

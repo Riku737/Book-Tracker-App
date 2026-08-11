@@ -1,9 +1,10 @@
 import {Link} from "react-router-dom";
+import "../../styles/css/Footer.css";
 
-function Footer() {
+export default function Footer() {
 
     return(
-        <footer className="bg-light py-5">
+        <footer className="bg-footer py-5">
             <div className="container">
 
                 <div className="row">
@@ -61,5 +62,3 @@ function Footer() {
     );
 
 }
-
-export default Footer;

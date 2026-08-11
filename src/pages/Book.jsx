@@ -9,6 +9,7 @@ import Cover from "../components/books/covers/BookCover.jsx";
 import Loading from "../components/loading/LoadingBook.jsx";
 import DropdownBtn from "../components/books/details/BookDropdown.jsx";
 import Authors from "../components/books/details/BookAuthors.jsx";
+import {getBookStatus} from "../db/database.js";
 
 export default function Book() {
 
@@ -17,6 +18,7 @@ export default function Book() {
     const [book, setBook] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [status, setStatus] = useState(null);
 
     useEffect(() => {
 
@@ -27,6 +29,7 @@ export default function Book() {
                 const data = await getBook(id);
                 data["authors"] = await getAuthorName(data.authors); // Retrieve and add author names manually because book API doesn't show the names (only shows author IDs)
                 setBook(data);
+                setStatus(await getBookStatus(data.key));
                 document.title = `${data.title} | BookBook`; // Dynamic page title
             } catch (e) {
                 console.error(e);
@@ -74,8 +77,9 @@ export default function Book() {
 
                     {/*Title*/}
                     <div>
+                        <p className="badge bg-footer text-bg-light fw-normal mb-2">{status}</p>
                         <h1>{book.title}</h1>
-                        <p>
+                        <p className="mb-0">
                             <Authors names={book.authors?.map(a => a.name)} ids={book.authors?.map(a => a.key)} />
                         </p>
                     </div>

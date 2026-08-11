@@ -15,6 +15,13 @@ Status:
 - Did Not Finish => dnf
 */
 
+const STATUS = {
+    want_to_read: "Want to Read",
+    reading: "Currently Reading",
+    read: "Read",
+    dnf: "Did Not Finish"
+};
+
 db.version(1).stores({
     books: '++id, status, title, bookKey, authors, bookCovers, date',
 });
@@ -36,6 +43,11 @@ export async function addToBookshelf(status, title, bookKey, authors, bookCovers
 
 export async function isInBookshelf(bookKey) {
     return !!await db.books.where("bookKey").equals(bookKey).first();
+}
+
+export async function getBookStatus(bookKey) {
+    const book = await db.books.where("bookKey").equals(bookKey).first();
+    return(STATUS[book?.status] ?? null);
 }
 
 export async function removeBook(bookKey) {
