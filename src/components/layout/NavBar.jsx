@@ -7,11 +7,6 @@ import SearchBar from "./SearchBar.jsx";
 
 function NavBar() {
 
-    const totalBookshelf = useLiveQuery(
-        () => db.books.count(),
-        []
-    );
-
     return(
         <>
             <nav className="navbar navbar-expand-lg border-bottom">
