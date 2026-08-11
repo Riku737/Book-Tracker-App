@@ -1,8 +1,5 @@
 import { Link } from "react-router-dom"
 
-import {useLiveQuery} from "dexie-react-hooks";
-import {db} from "../../db/database.js";
-
 import SearchBar from "./SearchBar.jsx";
 
 function NavBar() {
