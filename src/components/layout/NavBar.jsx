@@ -80,7 +80,7 @@ function NavBar() {
                                 {/*Total bookshelf*/}
                                 <li className="nav-item">
                                     <Link to="/bookshelf" className="nav-link">
-                                        Bookshelf ({totalBookshelf ?? 0})
+                                        Bookshelf
                                     </Link>
                                 </li>
                             </ul>

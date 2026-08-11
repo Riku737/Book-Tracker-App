@@ -30,13 +30,15 @@ export default function SearchBookCard({book}) {
                 <div className="d-flex flex-column">
 
                     {/*Book Title*/}
-                    <h6 className="m-0"><a className="link-underline link-underline-opacity-0 link-underline-opacity-100-hover" href={book_link}>{book.title}</a></h6>
+                    <h6 className="m-0">
+                        <a className="link-underline link-underline-opacity-0 link-underline-opacity-100-hover" href={book_link}>
+                            {book.title}
+                        </a>
+                    </h6>
 
                     {/*Authors*/}
-                    <p className="m-0 fs-6 lh-sm">
-                        <small>
-                            <Authors names={book.author_name} ids={book.author_key?.map(key => ("/authors/" + key))} />
-                        </small>
+                    <p className="m-0 lh-sm small">
+                        <Authors names={book.author_name} ids={book.author_key?.map(key => ("/authors/" + key))} />
                     </p>
 
                 </div>

@@ -56,7 +56,7 @@ export default function Bookshelf() {
 
     return (
         <section>
-            <h1 className="mb-4">My Bookshelf ({totalBooks.all})</h1>
+            <h1 className="mb-4">My Bookshelf</h1>
 
             {/*Tab Buttons*/}
             <section>
@@ -73,7 +73,7 @@ export default function Bookshelf() {
                             aria-controls="want_to_read-tab-pane"
                             aria-selected="true"
                         >
-                            Want to Read ({totalBooks.want_to_read})
+                            Want to Read <span className="badge bg-footer text-bg-light fw-normal">{totalBooks.want_to_read}</span>
                         </button>
                     </li>
 
@@ -88,7 +88,7 @@ export default function Bookshelf() {
                             aria-controls="reading-tab-pane"
                             aria-selected="false"
                         >
-                            Currently Reading ({totalBooks.reading})
+                            Currently Reading <span className="badge bg-footer text-bg-light fw-normal">{totalBooks.reading}</span>
                         </button>
                     </li>
 
@@ -103,7 +103,7 @@ export default function Bookshelf() {
                             aria-controls="read-tab-pane"
                             aria-selected="false"
                         >
-                            Read ({totalBooks.read})
+                            Read <span className="badge bg-footer text-bg-light fw-normal">{totalBooks.read}</span>
                         </button>
                     </li>
 
@@ -118,7 +118,7 @@ export default function Bookshelf() {
                             aria-controls="dnf-tab-pane"
                             aria-selected="false"
                         >
-                            Did Not Finish ({totalBooks.dnf})
+                            Did Not Finish <span className="badge bg-footer text-bg-light fw-normal">{totalBooks.dnf}</span>
                         </button>
                     </li>
                 </ul>
